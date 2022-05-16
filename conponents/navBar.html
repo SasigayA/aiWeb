@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航栏</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link href="../bootstrap/icons-1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .bg-grey{
+            background-color: #e5e5e5;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <index-nav></index-nav>
+</div>
+
+
+
+    <div id="nav" class="position-relative bg-white">
+        <!-- 副导航 开始 -->
+        <div id="SecondaryNavigation" class="bg-grey d-none d-lg-block">
+            <div class="d-flex mx-5 align-content-center">
+                <ul class="nav me-auto col-8 justify-content-start my-auto">
+                    <li v-for="item in items">
+                        <a href="{{item.object.link}}" class="nav-link px-3 text-grey small hover-blue">{{item.object.name}}</a>
+                    </li>
+                </ul>
+                <div class="rounded-pill bg-white py-1 px-2 align-content-between my-2">
+                    <span class="nav-item dropdown">
+                        <a class="dropdown-toggle text-grey fs-6" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Chinese</a>
+                        <div class="col-1 d-md-flex d-lg-none">
+                            <button class="navbar-toggler d-none d-md-flex d-lg-none" type="button" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Chinese</a></li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!-- 副导航 结束 -->
+
+        <!-- 主导航 开始 -->
+        <div id="Navigation" class="navbar navbar-expand-xl py-0">
+            <div class="container-fluid px-lg-3 pe-md-0 mx-lg-5 mx-0 align-items-center d-flex py-lg-3 py-md-0">
+                <div class="col-lg-3 col-9 border-end pb-10vh-lg">
+                    <a class="navbar-brand my-auto me-auto " href="../index.html">
+                        <img src="../img/dark-logo.svg" alt="" class="navbar-brand-item navbar-brand-img">
+                    </a>
+                </div>
+                <div class="col-3 d-md-flex d-lg-none bg-blue">
+                    <button class="navbar-toggler d-none d-md-flex d-lg-none w-100 h-auto" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                        <i class="bi bi-list text-white w-100 display-1 py-2" ></i>
+                    </button>
+                </div>
+
+                <div class="col-lg-9 d-none d-lg-flex pb-10vh-lg">
+                    <ul class="navbar-nav me-auto row gx-0 justify-content-start w-auto ">
+                        <li class="nav-item col-auto" v-for="item in items">
+
+                            <a :href=item.object.link class="nav-link- ps-3 text-dark mx-3 hover-blue">{{item.object.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--            移动端的菜单-->
+                <div class="offcanvas offcanvas-top navbar-toggler" tabindex="-1" id="offcanvasTop"
+                     aria-labelledby="offcanvasTopLabel" style="height: max-content">
+                    <div class="offcanvas-header">
+                        <p id="offcanvasTopLabel" class="fs-1 text-center text-dark col mb-0">导航栏</p>
+                        <button type="button" class="btn-close text-reset fs-1" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body p-0">
+                        <div class="d-none d-md-flex d-lg-none row bg-white ">
+                                <div v-for="item1 in items" :class="[item1.object.index!=6 ?'col-6 border px-3 py-3':'col-12 border px-3 py-3']">
+                                    <a :href="item1.object.link" class="nav-link text-dark fs-3 text-center">{{item1.object.name}}</a>
+                                </div>
+                        </div>
+                            <div class="col border px-3 py-3 bg-light row g-0">
+                                <a href="" class="nav-link text-dark fs-4 text-center col-3">学生</a>
+                                <a href="" class="nav-link text-dark fs-4 text-center col-3">教职工</a>
+                                <a href="" class="nav-link text-dark fs-4 text-center col-3">家长</a>
+                                <a href="" class="nav-link text-dark fs-4 text-center col-3">赞助与合作</a>
+                                <a href="" class="nav-link text-dark fs-4 text-center col-3">消息</a>
+                                <a href="" class="nav-link text-dark fs-4 text-center col-3">网站地图</a>
+                            </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+<script src="../js/secNavbar.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

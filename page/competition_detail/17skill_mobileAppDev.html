@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>17届技能节之移动应用开发</title>
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css">
+    <link href="../../fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
+    <link href="../../bootstrap/icons-1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/competition.css">
+    <style>
+        .dolnRo .active::before {
+            content: "—";
+            left: 0px;
+            position: absolute;
+        }
+        .dolnRo li{
+            font-size: 1rem;
+            line-height: 2.4rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+        .info_table{
+            border-bottom: 0.1px solid rgb(229, 229, 229);
+            color: rgb(0, 0, 0);
+            display: flex;
+            font-size: 1rem;
+            font-weight: 500;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            line-height: 0.7rem;
+            margin-top: 1.6rem;
+            padding-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+        .game p{
+            border-radius: 0.25rem;
+        }
+        .game p::before{
+            position: absolute;
+            right: 10px;
+            content: "\2192";
+            color: white;
+
+        }
+        .game p:hover{
+            background-color: #771a2a;
+            color: white!important;
+
+        }
+        .bg-blue{
+            background-color: #0078d0;
+        }
+        td>div{
+            height: 3.5rem;
+        }
+        .table>:not(caption)>*>* {
+            padding: 0.7rem 0.5rem;
+            background-color: var(--bs-table-bg);
+            border-bottom-width: 1px;
+            box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+        }
+    </style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="check" viewBox="0 0 16 16">
+        <title>Check</title>
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+    </symbol>
+</svg>
+<!--导航-->
+<div class="">
+    <!--副导航-->
+    <nav class="py-2 d-none d-lg-block " style="background:#e5e5e5;">
+        <div class="d-flex ms-5">
+            <ul class="nav me-auto col-8 justify-content-start">
+                <li class="nav-item mx-2"><a href="../competition/17skill.html" class="nav-link px-2 text-grey small" aria-current="page">17届技能节</a></li>
+                <li class="nav-item mx-2"><a href="../competition/17skill.html" class="nav-link px-2 text-grey small" aria-current="page">17届技能节</a></li>
+                <li class="nav-item mx-2"><a href="../competition/17skill.html" class="nav-link px-2 text-grey small " aria-current="page">17届技能节</a></li>
+                <li class="nav-item mx-2"><a href="../competition/17skill.html" class="nav-link px-2 text-grey small " aria-current="page">17届技能节</a></li>
+            </ul>
+
+        </div>
+    </nav>
+    <!-- 导航 -->
+    <nav class="navbar nav- navbar-expand-lg navbar-light py-lg-3 py-0 site-navigation border-bottom">
+        <div class="container-fluid px-0" style="height: 100%">
+            <a href="../../index.html" class="navbar-brand d-none d-md-block ps-5 me-0 col-lg-1 col-6">
+                <img src="../../img/dark-logo.svg" class="navbar-brand-img" alt="logo">
+            </a>
+            <div class="col-3 d-md-flex d-lg-none bg-blue h-100">
+                <button class="navbar-toggler d-none d-md-flex d-lg-none w-100 h-auto" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                    <i class="bi bi-list text-white w-100 display-1 py-2 my-auto" ></i>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse " id="navmenu">
+                <ul class="navbar-nav mx-auto d-flex justify-content-center">
+                    <li class="nav-item col-auto">
+                        <a href="../../index.html" class="nav-link text-dark label mx-3 hover-blue">首页</a>
+                    </li>
+                    <li class="nav-item col-auto">
+                        <a href="../competition.html" class="nav-link text-dark label mx-3 hover-blue">竞赛</a>
+                    </li>
+                    <li class="nav-item col-auto">
+                        <a href="../competition/albums.html" class="nav-link text-dark label mx-3 hover-blue">相册</a>
+                    </li>
+                    <li class="nav-item col-auto">
+                        <a href="../competition/competitionHighLight.html" class="nav-link text-dark label mx-3 hover-blue">新闻</a>
+                    </li>
+
+
+                </ul>
+                <i class="bi bi-search px-5 fs-3 col-1 d-none d-md-flex d-lg-none mx-auto"></i>
+            </div>
+            <i class="bi bi-search px-5 fs-3 col-1 d-none d-lg-flex hover-blue"></i>
+            <!--            移动端的菜单-->
+            <div class="offcanvas offcanvas-top navbar-toggler" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel" style="height: max-content">
+                <div class="offcanvas-header">
+                    <p id="offcanvasTopLabel" class="fs-1 text-center text-dark col mb-0">导航栏</p>
+                    <button type="button" class="btn-close text-reset fs-1" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body p-0">
+                    <div class="d-none d-md-flex d-lg-none row bg-white ">
+                        <div class="col-6 border px-3 py-3">
+                            <a href="../../index.html" class="nav-link text-dark fs-2 text-center">首页</a>
+                        </div>
+                        <div class="col-6 border px-3 py-3">
+                            <a href="../competition.html" class="nav-link text-dark fs-2 text-center">竞赛</a>
+                        </div>
+                        <div class="col-6 border px-3 py-3">
+                            <a href="../competition/albums.html" class="nav-link text-dark fs-2 text-center">相册</a>
+                        </div>
+                        <div class="col-6 border px-3 py-3">
+                            <a href="../competition/competitionHighLight.html" class="nav-link text-dark fs-2 text-center">新闻</a>
+                        </div>
+
+
+                        <div class="col border px-3 py-3 bg-light row g-0">
+                            <a href="../competition/17skill.html" class="nav-link text-dark label text-center col-3">17届技能节</a>
+                            <a href="../competition/17skill.html" class="nav-link text-dark label text-center col-3">17届技能节</a>
+                            <a href="../competition/17skill.html" class="nav-link text-dark label text-center col-3">17届技能节</a>
+                            <a href="../competition/17skill.html" class="nav-link text-dark label text-center col-3">17届技能节</a>
+                            <a href="../competition/17skill.html" class="nav-link text-dark label text-center col-3">17届技能节</a>
+                            <a href="../competition/17skill.html" class="nav-link text-dark label text-center col-3">17届技能节</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+</div>
+
+<!--简要介绍-->
+<div class="col-lg-9 bg-white row justify-content-center mb-5 mx-auto pb-5" id="info">
+    <div class="col-lg-3 d-none d-lg-flex border-end">
+        <ul class="d-flex flex-column list-unstyled align-items-start mx-auto my-5 py-5 dolnRo">
+            <li style="color: #771a2a;width: 120%" class="active position-relative"><a href="#info" style="color: #771a2a;">总览</a></li>
+            <li style="width: 165%;"><a href="#starTeams">焦点队伍</a></li>
+            <li style="width: 165%;"><a href="#winner">获奖队伍</a></li>
+        </ul>
+    </div>
+    <div class="col-lg col-md-12 d-flex">
+        <div class="mt-md-5 pb-5 mx-md-auto ms-lg-5">
+            <p class="text-red" style="font-size: 6rem">2021技能节</p>
+            <p class="text-dark" style="font-size: 6rem">移动应用开发比赛</p>
+        </div>
+    </div>
+</div>
+
+<!--焦点队伍-->
+<section id="starTeams" class="py-5 bg-light mt-5" >
+    <div class="row container-lg px-lg-0 px-5 mx-auto gx-3 gy-lg-0 gy-md-3">
+        <p class="label mb-5">焦点队伍</p>
+        <div class="col-lg-3  mx-auto">
+            <div class="bg-white px-4 rounded-3">
+                <div class="mx-auto col-7 py-5 justify-content-center">
+                    <img src="../../img/competition/game/starTeams/5th.jpg" alt="" class="rounded-circle" width="100%">
+                </div>
+
+                <div class="my-2 d-flex flex-column">
+                    <span class="label mb-3 mx-auto">第五组</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3  mx-auto">
+            <div class="bg-white px-4 rounded-3">
+                <div class="mx-auto col-7 py-5 justify-content-center">
+                    <img src="../../img/competition/game/starTeams/3th.jpg" alt="" class="rounded-circle" width="100%">
+                </div>
+
+                <div class="my-2 d-flex flex-column">
+                    <span class="label mb-3 mx-auto">第三组</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-3  mx-auto">
+            <div class="bg-white px-4 rounded-3">
+                <div class="mx-auto col-7 py-5 justify-content-center">
+                    <img src="../../img/competition/game/starTeams/1th.jpg" alt="" class="rounded-circle" width="100%">
+                </div>
+
+                <div class="my-2 d-flex flex-column">
+                    <span class="label mb-3 mx-auto">第一组</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-3  mx-auto">
+            <div class="bg-white px-4 rounded-3">
+                <div class="mx-auto col-7 py-5 justify-content-center">
+                    <img src="../../img/competition/game/starTeams/2th.jpg" alt="" class="rounded-circle" width="100%">
+                </div>
+
+                <div class="my-2 d-flex flex-column">
+                    <span class="label mb-3 mx-auto">第二组</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!--比赛成绩 start-->
+<div class="container-lg px-5 px-lg-0 py-5 d-none d-lg-block" style="min-height: 80vh">
+    <div class="mb-3 p-3">
+        <p class="text-center fs-1 text-dark">获奖队伍</p>
+    </div>
+    <table class="table align-middle">
+        <thead>
+        <tr>
+            <th scope="col">队伍</th>
+            <th scope="col">所属专业</th>
+            <th scope="col" class="text-center">一等奖</th>
+            <th scope="col" class="text-center">二等奖</th>
+            <th scope="col" class="text-center">三等奖</th>
+            <th scope="col" class="text-center">优秀奖</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <div class="row">
+                    <div class="col-auto my-auto rounded-circle"><img src="../../img/competition/game/starTeams/5th.jpg" alt="" style="width: 3.5rem;height: 3.5rem;border-radius: 50%"></div>
+                    <div class="col">
+                        <p class="label mb-0">第五组</p>
+                        <p class="text-muted m-0">移动应用开发</p>
+                    </div>
+                </div>
+
+            </td>
+            <td><p class="mb-0 text-muted">互联网</p></td>
+            <td>
+                <p class="bi bi-check-lg text-center label mb-0" style="color:green; "></p>
+            </td>
+            <td><p class="bi bi-dash-lg text-center mb-0"></p></td>
+            <td><p class="bi bi-dash-lg text-center mb-0"></p></td>
+            <td><p class="bi bi-dash-lg text-center mb-0"></p></td>
+
+        </tr>
+        <tr>
+            <td>
+                <div class="row">
+                    <div class="col-auto my-auto rounded-circle"><img src="../../img/competition/game/starTeams/5th.jpg" alt="" style="width: 3.5rem;height: 3.5rem;border-radius: 50%"></div>
+                    <div class="col">
+                        <p class="label mb-0">第五组</p>
+                        <p class="text-muted m-0">移动应用开发</p>
+                    </div>
+                </div>
+
+            </td>
+            <td><p class="mb-0 text-muted">互联网</p></td>
+            <td>
+                <p class="bi bi-dash-lg text-center mb-0"></p>
+            </td>
+            <td><p class="bi bi-dash-lg text-center mb-0"></p></td>
+            <td><p class="bi bi-dash-lg text-center mb-0"></p></td>
+            <td><p class="bi bi-dash-lg text-center mb-0"></p></td>
+
+        </tr>
+        <tr>
+            <td>
+                <div class="row">
+                    <div class="col-auto my-auto rounded-circle"><img src="../../img/competition/game/starTeams/5th.jpg" alt="" style="width: 3.5rem;height: 3.5rem;border-radius: 50%"></div>
+                    <div class="col">
+                        <p class="label mb-0">第五组</p>
+                        <p class="text-muted m-0">移动应用开发</p>
+                    </div>
+                </div>
+
+            </td>
+            <td><p class="mb-0 text-muted">互联网</p></td>
+            <td>
+                <p class="bi bi-dash-lg text-center mb-0"></p>
+            </td>
+            <td><p class="bi bi-dash-lg text-center mb-0"></p></td>
+            <td><p class="bi bi-dash-lg text-center mb-0"></p></td>
+            <td><p class="bi bi-dash-lg text-center mb-0"></p></td>
+
+        </tr>
+        <tr>
+            <td>
+                <div class="row">
+                    <div class="col-auto my-auto rounded-circle"><img src="../../img/competition/game/starTeams/5th.jpg" alt="" style="width: 3.5rem;height: 3.5rem;border-radius: 50%"></div>
+                    <div class="col">
+                        <p class="label mb-0">第五组</p>
+                        <p class="text-muted m-0">移动应用开发</p>
+                    </div>
+                </div>
+
+            </td>
+            <td><p class="mb-0 text-muted">互联网</p></td>
+            <td>
+                <p class="bi bi-dash-lg text-center mb-0"></p>
+            </td>
+            <td><p class="bi bi-dash-lg text-center mb-0"></p></td>
+            <td><p class="bi bi-dash-lg text-center mb-0"></p></td>
+            <td><p class="bi bi-dash-lg text-center mb-0"></p></td>
+
+        </tr>
+        <tr>
+            <td>
+                <div class="row">
+                    <div class="col-auto my-auto rounded-circle"><img src="../../img/competition/game/starTeams/5th.jpg" alt="" style="width: 3.5rem;height: 3.5rem;border-radius: 50%"></div>
+                    <div class="col">
+                        <p class="label mb-0">第五组</p>
+                        <p class="text-muted m-0">移动应用开发</p>
+                    </div>
+                </div>
+
+            </td>
+            <td><p class="mb-0 text-muted">互联网</p></td>
+            <td>
+                <p class="bi bi-dash-lg text-center mb-0"></p>
+            </td>
+            <td><p class="bi bi-dash-lg text-center mb-0"></p></td>
+            <td><p class="bi bi-dash-lg text-center mb-0"></p></td>
+            <td><p class="bi bi-dash-lg text-center mb-0"></p></td>
+
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+<div class="col-lg-10 mx-auto px-5 my-5 d-block d-lg-none">
+    <div class="mb-2 p-3">
+        <p class="text-center fs-1 text-dark">获奖队伍</p>
+    </div>
+    <div class="d-flex flex-column">
+        <div class="line"></div>
+        <a href="#">
+            <div class="px-4 py-4 rounded-3 hover-bg-blue">
+                <div class="col-12 row justify-content-center">
+                    <div class="col-2 my-auto rounded-circle">
+                        <img src="../../img/competition/game/starTeams/5th.jpg" alt="" class="w-100" style="border-radius: 50%">
+                    </div>
+                    <div class="col-7">
+                        <p class="fs-4 ">第五组</p>
+                        <p class="label fw-normal text-muted mb-0">移动应用开发</p>
+                    </div>
+                    <div class="col-3 text-end fs-5 my-auto">一等奖</div>
+
+                </div>
+            </div>
+        </a>
+        <div class="line"></div>
+        <a href="#">
+            <div class="px-4 py-4 rounded-3 hover-bg-blue">
+                <div class="col-12 row justify-content-center">
+                    <div class="col-2 my-auto rounded-circle">
+                        <img src="../../img/competition/game/starTeams/5th.jpg" alt="" class="w-100" style="border-radius: 50%">
+                    </div>
+                    <div class="col-7">
+                        <p class="fs-4 ">第五组</p>
+                        <p class="label fw-normal text-muted mb-0">移动应用开发</p>
+                    </div>
+                    <div class="col-3 text-end fs-5 my-auto">一等奖</div>
+
+                </div>
+            </div>
+        </a>
+        <div class="line"></div>
+        <a href="#">
+            <div class="px-4 py-4 rounded-3 hover-bg-blue">
+                <div class="col-12 row justify-content-center">
+                    <div class="col-2 my-auto rounded-circle">
+                        <img src="../../img/competition/game/starTeams/5th.jpg" alt="" class="w-100" style="border-radius: 50%">
+                    </div>
+                    <div class="col-7">
+                        <p class="fs-4 ">第五组</p>
+                        <p class="label fw-normal text-muted mb-0">移动应用开发</p>
+                    </div>
+                    <div class="col-3 text-end fs-5 my-auto">一等奖</div>
+
+                </div>
+            </div>
+        </a>
+        <div class="line"></div>
+        <a href="#">
+            <div class="px-4 py-4 rounded-3 hover-bg-blue">
+                <div class="col-12 row justify-content-center">
+                    <div class="col-2 my-auto rounded-circle">
+                        <img src="../../img/competition/game/starTeams/5th.jpg" alt="" class="w-100" style="border-radius: 50%">
+                    </div>
+                    <div class="col-7">
+                        <p class="fs-4 ">第五组</p>
+                        <p class="label fw-normal text-muted mb-0">移动应用开发</p>
+                    </div>
+                    <div class="col-3 text-end fs-5 my-auto">一等奖</div>
+
+                </div>
+            </div>
+        </a>
+        <div class="line"></div>
+    </div>
+</div>
+
+<!--比赛成绩 end-->
+
+
+<!-- Footer -->
+<footer class="small lighten-3 pt-4" style="background-color: black">
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+        <!-- Grid row -->
+        <div class="row">
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+                <!-- Content -->
+                <img class="mx-auto my-auto" src="../../img/light-logo.png" width="75%"/>
+
+
+            </div>
+            <!-- Grid column -->
+            <hr class="clearfix w-100 d-md-none">
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+                <!-- Links -->
+                <h5 class="fw-bold text-uppercase mb-4 text-white">关于</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <p>
+                            <a href="#" class="text-muted">网站地图</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#" class="text-muted">入学申请</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#" class="text-muted">研究</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#" class="text-muted">赞助合作</a>
+                        </p>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                <!-- Contact details -->
+                <h5 class="fw-bold text-uppercase mb-4 text-white">联系方式</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <p class="text-muted">
+                            <i class="fas fa-home mr-3 text-muted"></i> 广东省深圳市龙岗区五联社区将军帽路1号 </p>
+                    </li>
+                    <li>
+                        <p class="text-muted">
+                            <i class="fas fa-phone mr-3 text-muted"></i> 教务处：83706715</p>
+                    </li>
+                    <li>
+                        <p class="text-muted">
+                            <i class="fas fa-phone mr-3 text-muted "></i> 招生就业处：0755-83757355</p>
+                    </li>
+                    <li>
+                        <p class="text-muted">
+                            <i class="fas fa-print mr-3 text-muted"></i> 0755-83757324　</p>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+                <!-- Social buttons -->
+                <h5 class="fw-bold text-uppercase mb-4 text-white">关注我们</h5>
+
+                <!-- QQ -->
+                <a type="button" class="rounded-circle mx-2">
+                    <i class="fab fa-qq fs-3 text-muted"></i>
+                </a>
+                <!-- Wechat -->
+                <a type="button" class="rounded-circle mx-2">
+                    <i class="fab fa-weixin fs-3 text-muted"></i>
+                </a>
+                <!-- Weibo -->
+                <a type="button" class="rounded-circle mx-2">
+                    <i class="fab fa-weibo fs-3 text-muted"></i>
+                </a>
+                <!-- Google -->
+                <a type="button" class="rounded-circle mx-2">
+                    <i class="fab fa-zhihu fs-3 text-muted"></i>
+                </a>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="text-center py-3 text-white" style="background-color: black">© copyright:
+        <a href="https://mdbootstrap.com/" class="text-white">深圳技师学院</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+<script src="../../bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

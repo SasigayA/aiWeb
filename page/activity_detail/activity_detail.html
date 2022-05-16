@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>活动详情</title>
+  <script src="../../js/vue@2.js"></script>
+  <link rel="stylesheet" href="../../bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css">
+  <link href="../../bootstrap/icons-1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    p{
+      color: black;
+    }
+    .figure-caption {
+      background:none;
+    }
+    .title{
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 75px;
+      letter-spacing: .1em;
+      padding:20px 25% 35px 0px;
+    }
+    @media (max-width: 992px) {
+      .title{
+        font-size: 40px;
+        line-height: 45px;
+      }
+    }
+    @media (min-width: 992px) {
+      .pb-155-lg{
+        padding-bottom: 155px !important;
+      }
+    }
+
+
+  </style>
+</head>
+<body>
+
+<!-- 导航 + header -->
+<div id="nav" class="position-relative bg-white">
+  <!-- 副导航 开始 -->
+  <div id="SecondaryNavigation" class="bg-grey d-none d-lg-block">
+    <div class="d-flex mx-5 align-content-center">
+      <ul class="nav me-auto col-8 justify-content-start my-auto">
+        <li v-for="item in items">
+          <a :href=item.object.link class="nav-link px-3 text-grey small hover-blue">{{item.object.name}}</a>
+        </li>
+      </ul>
+      <div class="rounded-pill bg-white py-1 px-2 align-content-between my-2">
+                    <span class="nav-item dropdown">
+                        <a class="dropdown-toggle text-grey fs-6" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Chinese</a>
+                        <div class="col-1 d-md-flex d-lg-none">
+                            <button class="navbar-toggler d-none d-md-flex d-lg-none" type="button" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Chinese</a></li>
+                        </ul>
+                    </span>
+      </div>
+    </div>
+  </div>
+  <!-- 副导航 结束 -->
+
+  <!-- 主导航 开始 -->
+  <div id="Navigation" class="navbar navbar-expand-xl py-0">
+    <div class="container-fluid px-lg-3 pe-md-0 mx-lg-5 mx-0 align-items-center d-flex py-lg-3 py-md-0">
+      <div class="col-lg-3 col-9 pt-3 pt-lg-0 pb-10vh-lg mb-auto">
+        <a class="navbar-brand my-auto me-auto " href="../../index.html">
+          <img src="../../img/dark-logo.svg" alt="" class="navbar-brand-item navbar-brand-img">
+        </a>
+      </div>
+      <div class="col-3 d-md-flex d-lg-none bg-blue">
+        <button class="navbar-toggler d-none d-md-flex d-lg-none w-100 h-auto" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+          <i class="bi bi-list text-white w-100 display-1 py-2" ></i>
+        </button>
+      </div>
+
+      <div class="col-lg-9 d-none d-lg-flex border-start" style="flex-wrap: wrap">
+        <ul class="navbar-nav me-auto row gx-0 justify-content-start w-auto ">
+          <li class="nav-item col-auto" v-for="item in items">
+
+            <a :href=item.object.link class="nav-link- ps-3 text-dark mx-3 hover-blue">{{item.object.name}}</a>
+          </li>
+        </ul>
+        <div class="d-flex flex-column col-lg-10 col-10 mx-auto me-lg-auto ms-lg-4 mt-5">
+            <div>
+                <p class="title mt-5">隔离会议：分布式电声网络即兴创作</p>
+                <div class="row mb-4">
+                    <p class="text-muted fs-5 col-3">2022年11月07日</p>
+                    <div class="row col-auto">
+                        <p class="w-auto"><span class="badge bg-grey text-dark fw-light fs-6 py-2 px-3">讲座</span></p>
+                        <p class="w-auto"><span class="badge bg-grey text-dark fw-light fs-6 py-2 px-3">谈话</span></p>
+                    </div>
+                </div>
+                <p class="label mb-2 col-9">主办方：信息与通信学院</p>
+
+            </div>
+        </div>
+      </div>
+      <!--            移动端的菜单-->
+      <div class="offcanvas offcanvas-top navbar-toggler" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel" style="height: max-content">
+            <div class="offcanvas-header">
+                  <p id="offcanvasTopLabel" class="fs-1 text-center text-dark col mb-0">导航栏</p>
+                  <button type="button" class="btn-close text-reset fs-1" data-bs-dismiss="offcanvas"
+                          aria-label="Close"></button>
+            </div>
+        <div class="offcanvas-body p-0">
+            <div class="d-none d-md-flex d-lg-none row bg-white ">
+                <div v-for="item1 in items" :class="[item1.object.index!=6 ?'col-6 border px-3 py-3':'col-12 border px-3 py-3']">
+                    <a :href="item1.object.link" class="nav-link text-dark fs-2 text-center">{{item1.object.name}}</a>
+                </div>
+            </div>
+            <div id="AppSecondaryNavigation" class="col border px-3 py-3 bg-light row g-0">
+                <span v-for="item1 in items" class="col-4">
+                    <a :href="item1.object.link" class="nav-link text-dark desc text-center ">{{item1.object.name}}</a>
+                </span>
+
+            </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="py-1 d-flex d-lg-none">
+    <div class="col-lg-10  mt-5 mx-auto">
+        <div class="lable mb-5 mt-3 ">
+            <p class="me-auto text-dark offset-lg-2 display-1 fw-bold px-5 px-lg-0">
+                隔离会议：分布式电声网络即兴创作
+            </p>
+        </div>
+        <div class="col-lg-10 mx-auto mt-3 px-5 px-lg-0">
+            <div class="col-lg-5 mx-auto border-start-lg px-2 ">
+                <p class="display-5 fw-normal mb-4 text-muted ">2022年11月07日</p>
+                <div class="row col-auto">
+                    <p class="w-auto"><span class="badge bg-grey text-dark fw-normal newsTitle py-3 px-4 ">讲座</span></p>
+                    <p class="w-auto"><span class="badge bg-grey text-dark fw-normal newsTitle py-3 px-4 ">讲座</span></p>
+                </div>
+                <p class="display-5 fw-normal mb-lg-3 " style="letter-spacing: 0.2em">主办方：信息与通信学院</p>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- content start -->
+<div class="py-1">
+  <div class="col-lg-9 px-lg-5 mx-auto pb-3" style="min-height: 5rem">
+    <img src="https://stillmed.olympics.com/media/Images/News/2021/14/2021-12-14-Paris2024Ceremony-featured.jpg?im=Resize=(2880,1620),aspect=fill" alt="" width="100%" class="rounded-3">
+  </div>
+  <div class="col-lg-9 px-5 mx-auto mt-lg-5 mt-3">
+    <div class="col-lg-5 mx-auto border-start-lg px-2 pb-5">
+        <p class="label mb-3 fw-bold">活动时间</p>
+        <p class="label mb-3">北京时间2022年4月23日星期六，下午4点至下午5点30分</p>
+        <p class="label mb-3 fw-bold">活动开放对象</p>
+        <p class="label mb-3">全校师生</p>
+        <p class="label mb-3 fw-bold">活动地点</p>
+        <p class="label mb-3">教学楼502教室</p>
+        <p class="label mb-3 fw-bold">活动简介</p>
+        <p class="label mb-3">在 1990 年代和 2000 年代初期，大多数西非国家开始向民主治理过渡。在随后的十年中，该次区域享有相对和平和物质进步。不幸的是，民主化的这些成果正在被侵蚀。讲座认为，21 世纪之交的民主改革是西非经共体集团随后乐观的政治、社会和经济状况的关键驱动因素。当今西非社会的流行态度在很大程度上是反独裁的；因此，该次区域各国正在逐步退出民主治理，这预示着它们在 2020 年代及以后的整体稳定和物质繁荣是不利的。讲座提出了遏制西非国家民主衰退的措施，以防止经济衰退、社会动荡、</p>
+      <p>
+        <img class="w-100" src="https://stillmed.olympics.com/media/Images/Beyond-the-Games/Olympic-Truce/truce-logo-inside.jpg?im=Resize,width=700" alt="">
+      </p>
+      <p class="label mb-3">奥林匹克休战的象征是和平的鸽子，背景是传统的奥林匹克圣火。在一个饱受战争和敌意困扰的世界里，和平鸽子的象征代表了国际奥委会通过体育和奥林匹克理想建立一个和平和更美好世界的理想之一。奥运圣火通过共享和全球团结，给世界各国人民带来了温暖的友谊。在符号中，火焰由五颜六色的泡腾元素组成 - 让人想起庆祝人类精神的庆祝活动。这些因素代表着所有种族的人聚集在一起遵守停火。</p>
+    </div>
+  </div>
+
+</div>
+<!-- content end -->
+
+<!--related News-->
+<div class="col-lg-9 mx-auto px-5 my-3">
+    <p class="fs-4 mb-4">相关新闻</p>
+    <div class="row g-3">
+        <div class="col-lg-3">
+            <a href="../news_detail/../news_detail/news_detail.html">
+                <div class="card p-0 border-0">
+                    <img src="https://stillmed.olympics.com/media/Images/News/2021/11/01/2021-11-01-Paris-thumbnail.jpg?im=Resize=(335,189),aspect=fill;Crop,size=(335,189),gravity=Center" alt="" class="rounded-3" style="object-fit: cover" >
+                    <div class="d-flex justify-content-between align-items-center" style="margin-top: 7px">
+                        <p class="col-auto rounded-3 py-2 px-3 mb-0 newsTitle" style="color: #212529;background-color: #f7f7f7">可持续发展</p>
+                        <div class="col rounded-3 py-2 px-3"><p class="text-center newsTitle text-muted mb-0">2021年 11月 05日</p></div>
+                    </div>
+                    <p class="label text-dark mb-0 hover-blue limit-2" style="margin-top: 8px">"我们在改善环境方面有着共同的雄心壮志"：宝洁的普里查德谈到了奥林匹克伙伴关系的可持续影响</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3">
+            <a href="../news_detail/news_detail.html">
+                <div class="card p-0 border-0">
+                    <img src="https://stillmed.olympics.com/media/Images/News/2021/11/05/2021-11-05-pg-thumbnail.jpg?im=Resize=(453,255),aspect=fill;Crop,size=(453,255),gravity=Center" alt="" class="rounded-3" style="object-fit: cover" >
+                    <div class="d-flex justify-content-between align-items-center" style="margin-top: 7px">
+                        <p class="col-auto rounded-3 py-2 px-3 mb-0 newsTitle" style="color: #212529;background-color: #f7f7f7">可持续发展</p>
+                        <div class="col rounded-3 py-2 px-3"><p class="text-center newsTitle text-muted mb-0">2021年 11月 05日</p></div>
+                    </div>
+                    <p class="label text-dark mb-0 hover-blue limit-2" style="margin-top: 8px">"我们在改善环境方面有着共同的雄心壮志"：宝洁的普里查德谈到了奥林匹克伙伴关系的可持续影响</p>
+                </div>
+            </a>
+
+        </div>
+        <div class="col-lg-3">
+            <a href="../news_detail/news_detail.html">
+                <div class="card p-0 border-0">
+                    <img src="https://stillmed.olympics.com/media/Images/News/2021/08/08/Paris/2021-08-08-paris-thumbnail.jpg?im=Resize=(335,189),aspect=fill;Crop,size=(335,189),gravity=Center" alt="" class="rounded-3" style="object-fit: cover" >
+                    <div class="d-flex justify-content-between align-items-center" style="margin-top: 7px">
+                        <p class="col-auto rounded-3 py-2 px-3 mb-0 newsTitle" style="color: #212529;background-color: #f7f7f7">可持续发展</p>
+                        <div class="col rounded-3 py-2 px-3"><p class="text-center newsTitle text-muted mb-0">2021年 11月 05日</p></div>
+                    </div>
+                    <p class="label text-dark mb-0 hover-blue limit-2" style="margin-top: 8px">"我们在改善环境方面有着共同的雄心壮志"：宝洁的普里查德谈到了奥林匹克伙伴关系的可持续影响</p>
+                </div>
+            </a>
+
+        </div>
+        <div class="col-lg-3">
+            <a href="../news_detail/news_detail.html">
+                <div class="card p-0 border-0">
+                    <img src="https://stillmed.olympics.com/media/Images/News/2021/10/16/2021-10-16-paris-2024-thumbnail.jpg?im=Resize=(335,189),aspect=fill;Crop,size=(335,189),gravity=Center" alt="" class="rounded-3" style="object-fit: cover" >
+                    <div class="d-flex justify-content-between align-items-center" style="margin-top: 7px">
+                        <p class="col-auto rounded-3 py-2 px-3 mb-0 newsTitle" style="color: #212529;background-color: #f7f7f7">可持续发展</p>
+                        <div class="col rounded-3 py-2 px-3"><p class="text-center newsTitle text-muted mb-0">2021年 11月 05日</p></div>
+                    </div>
+                    <p class="label text-dark mb-0 hover-blue limit-2" style="margin-top: 8px">"我们在改善环境方面有着共同的雄心壮志"：宝洁的普里查德谈到了奥林匹克伙伴关系的可持续影响</p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</div>
+
+<img src="../../img/slider/bg4.png" alt="" width="100%">
+<!--  页脚-->
+<footer class="small lighten-3 pt-4" style="background-color: black">
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+    <!-- Grid row -->
+    <div class="row">
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+        <!-- Content -->
+        <img class="mx-auto my-auto" src="../../img/light-logo.png" width="75%"/>
+
+
+      </div>
+      <!-- Grid column -->
+      <hr class="clearfix w-100 d-md-none">
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+        <!-- Links -->
+        <h5 class="fw-bold text-uppercase mb-4 text-white">关于</h5>
+        <ul class="list-unstyled">
+          <li>
+            <p>
+              <a href="#" class="text-muted">网站地图</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#" class="text-muted">入学申请</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#" class="text-muted">研究</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#" class="text-muted">赞助合作</a>
+            </p>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+        <!-- Contact details -->
+        <h5 class="fw-bold text-uppercase mb-4 text-white">联系方式</h5>
+
+        <ul class="list-unstyled">
+                        <li>
+                            <p class="text-muted">
+                                <i class="bi bi-house-fill mr-3 text-muted"></i> 广东省深圳市龙岗区五联社区将军帽路1号 </p>
+                        </li>
+                        <li>
+                            <p class="text-muted">
+                                <i class="bi bi-telephone-fill mr-3 text-muted"></i> 教务处：83706715</p>
+                        </li>
+                        <li>
+                            <p class="text-muted">
+                                <i class="bi-telephone-fill mr-3 text-muted "></i> 招生就业处：0755-83757355</p>
+                        </li>
+                        <li>
+                            <p class="text-muted">
+                                <i class="bi bi-printer-fill mr-3 text-muted"></i> 0755-83757324　</p>
+                        </li>
+                    </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+        <!-- Social buttons -->
+        <h5 class="fw-bold text-uppercase mb-4 text-white">关注我们</h5>
+
+        <!-- QQ -->
+        <a type="button" class="rounded-circle mx-2">
+          <i class="fab fa-qq fs-3 text-muted"></i>
+        </a>
+        <!-- Wechat -->
+        <a type="button" class="rounded-circle mx-2">
+          <i class="fab fa-weixin fs-3 text-muted"></i>
+        </a>
+        <!-- Weibo -->
+        <a type="button" class="rounded-circle mx-2">
+          <i class="fab fa-weibo fs-3 text-muted"></i>
+        </a>
+        <!-- Google -->
+        <a type="button" class="rounded-circle mx-2">
+          <i class="fab fa-zhihu fs-3 text-muted"></i>
+        </a>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="text-center py-3 text-white" style="background-color: black">© copyright:
+    <a href="https://mdbootstrap.com/" class="text-white">深圳技师学院</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+<script src="../../js/thirNavbar.js"></script>
+<script src="../../bootstrap/bootstrap@5.0.2.js" crossorigin="anonymous"></script>
+
+<script src="../../js/main.js"></script>
+</body>
+</html>

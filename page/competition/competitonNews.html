@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>新闻详情</title>
+  <link rel="stylesheet" href="../../bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css">
+  <link href="../../fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
+  <link href="../../bootstrap/icons-1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/competition.css">
+  <style>
+    p{
+      color: #212529;
+    }
+    .dolnRo .active::before {
+      content: "—";
+      left: 0px;
+      position: absolute;
+    }
+
+    .dolnRo li {
+      font-size: 1rem;
+      line-height: 2.4rem;
+      margin-bottom: 0.8rem;
+      position: relative;
+    }
+
+    .info_table {
+      border-bottom: 0.1px solid rgb(229, 229, 229);
+      color: rgb(0, 0, 0);
+      display: flex;
+      font-size: 1rem;
+      font-weight: 500;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      line-height: 0.7rem;
+      margin-top: 1.6rem;
+      padding-bottom: 0.8rem;
+      text-transform: uppercase;
+    }
+    .line{
+      height: .8px;
+    }
+
+    .game div {
+      border-radius: 0.25rem;
+    }
+
+    .game div:hover {
+      background-color: #771a2a;
+    }
+
+    .game div:hover>p {
+      color: white !important;
+    }
+    @media (min-width: 62em) {
+      .lg-title2:lang(zh) {
+        line-height: 14rem;
+      }
+    }
+
+
+    @media (min-width: 62em) {
+      .lg-title2 {
+        margin: 0px 1rem;
+        max-width: 49rem;
+      }
+    }
+
+
+    @media (min-width: 48em) {
+      .lg-title2 {
+        font-size: 8rem;
+      }
+
+    }
+
+    .lg-title2 {
+      font-size: 4rem;
+      line-height: 100%;
+      margin: 0px 0px 4rem;
+    }
+    .bg-blue{
+        background-color: #0078d0;
+    }
+  </style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="check" viewBox="0 0 16 16">
+    <title>Check</title>
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+</svg>
+<!--导航-->
+<div class="">
+    <!--副导航-->
+    <nav class="py-2 d-none d-lg-block " style="background:#e5e5e5;">
+        <div class="d-flex ms-5">
+            <ul class="nav me-auto col-8 justify-content-start">
+                <li class="nav-item mx-2"><a href="../competition/17skill.html" class="nav-link px-2 text-grey small" aria-current="page">17届技能节</a></li>
+                <li class="nav-item mx-2"><a href="../competition/17skill.html" class="nav-link px-2 text-grey small" aria-current="page">17届技能节</a></li>
+                <li class="nav-item mx-2"><a href="../competition/17skill.html" class="nav-link px-2 text-grey small " aria-current="page">17届技能节</a></li>
+                <li class="nav-item mx-2"><a href="../competition/17skill.html" class="nav-link px-2 text-grey small " aria-current="page">17届技能节</a></li>
+            </ul>
+
+        </div>
+    </nav>
+    <!-- 导航 -->
+    <nav class="navbar nav- navbar-expand-lg navbar-light py-lg-3 py-0 site-navigation border-bottom">
+        <div class="container-fluid px-0" style="height: 100%">
+            <a href="../../index.html" class="navbar-brand d-none d-md-block ps-5 me-0 col-lg-1 col-6">
+                <img src="../../img/dark-logo.svg" class="navbar-brand-img" alt="logo">
+            </a>
+            <div class="col-3 d-md-flex d-lg-none bg-blue h-100">
+                <button class="navbar-toggler d-none d-md-flex d-lg-none w-100 h-auto" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                    <i class="bi bi-list text-white w-100 display-1 py-2 my-auto" ></i>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse " id="navmenu">
+                <ul class="navbar-nav mx-auto d-flex justify-content-center">
+                    <li class="nav-item col-auto">
+                        <a href="../../index.html" class="nav-link text-dark label mx-3 hover-blue">首页</a>
+                    </li>
+                    <li class="nav-item col-auto">
+                        <a href="../competition.html" class="nav-link text-dark label mx-3 hover-blue">竞赛</a>
+                    </li>
+                    <li class="nav-item col-auto">
+                        <a href="../competition/albums.html" class="nav-link text-dark label mx-3 hover-blue">相册</a>
+                    </li>
+                    <li class="nav-item col-auto">
+                        <a href="../competition/competitionHighLight.html" class="nav-link text-dark label mx-3 hover-blue">新闻</a>
+                    </li>
+
+
+                </ul>
+                <i class="bi bi-search px-5 fs-3 col-1 d-none d-md-flex d-lg-none mx-auto"></i>
+            </div>
+            <i class="bi bi-search px-5 fs-3 col-1 d-none d-lg-flex hover-blue"></i>
+            <!--            移动端的菜单-->
+            <div class="offcanvas offcanvas-top navbar-toggler" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel" style="height: max-content">
+                <div class="offcanvas-header">
+                    <p id="offcanvasTopLabel" class="fs-1 text-center text-dark col mb-0">导航栏</p>
+                    <button type="button" class="btn-close text-reset fs-1" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body p-0">
+                    <div class="d-none d-md-flex d-lg-none row bg-white ">
+                        <div class="col-6 border px-3 py-3">
+                            <a href="../../index.html" class="nav-link text-dark fs-2 text-center">首页</a>
+                        </div>
+                        <div class="col-6 border px-3 py-3">
+                            <a href="../competition.html" class="nav-link text-dark fs-2 text-center">竞赛</a>
+                        </div>
+                        <div class="col-6 border px-3 py-3">
+                            <a href="../competition/albums.html" class="nav-link text-dark fs-2 text-center">相册</a>
+                        </div>
+                        <div class="col-6 border px-3 py-3">
+                            <a href="../competition/competitionHighLight.html" class="nav-link text-dark fs-2 text-center">新闻</a>
+                        </div>
+
+
+                        <div class="col border px-3 py-3 bg-light row g-0">
+                            <a href="../competition/17skill.html" class="nav-link text-dark label text-center col-3">17届技能节</a>
+                            <a href="../competition/17skill.html" class="nav-link text-dark label text-center col-3">17届技能节</a>
+                            <a href="../competition/17skill.html" class="nav-link text-dark label text-center col-3">17届技能节</a>
+                            <a href="../competition/17skill.html" class="nav-link text-dark label text-center col-3">17届技能节</a>
+                            <a href="../competition/17skill.html" class="nav-link text-dark label text-center col-3">17届技能节</a>
+                            <a href="../competition/17skill.html" class="nav-link text-dark label text-center col-3">17届技能节</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+</div>
+<!--内容-->
+<div class="container-lg px-lg-0 px-md-5 mb-5 mt-5 ">
+  <div class="sizebox my-3 w-100" style="height: 1px;"></div>
+  <div class="display-4 col-lg-8">17届技能节最难忘的九个时刻</div>
+  <div class="row justify-content-between">
+    <div class="subtitle col-lg-8 col-12 mt-5 mb-4">从历史性的第一次到共同的痛苦和欢乐的时刻，2021技能节是一届值得纪念的技能节。</div>
+    <div class="d-flex col-lg-auto flex-column ms-lg-auto ms-1 mt-auto mt-5 mb-4">
+      <span class="text-normal w-auto ad_desc mb-0">威廉.因博报道</span>
+      <span class="text-normal w-auto ad_desc">2021年08月08日上午9：10</span>
+
+    </div>
+  </div>
+  <div class="mb-5">
+    <img class="w-100" src="https://img.olympicchannel.com/images/image/private/t_16-9_1240-700/f_auto/v1538355600/primary/qgip80fbxaozovsczlvd" alt="">
+    <p class="text-normal desc text-end mt-2">圖片來源：2021 Getty Images</p>
+  </div>
+  <div class="col-lg-8 d-flex">
+    <div class="d-flex flex-column col-lg-3 col-auto me-5 me-lg-0">
+      <a type="button" class="rounded-circle my-2">
+        <i class="fab fa-qq label text-dark"></i>
+      </a>
+      <!-- Wechat -->
+      <a type="button" class="rounded-circle my-2">
+        <i class="fab fa-weixin label text-dark"></i>
+      </a>
+      <!-- Weibo -->
+      <a type="button" class="rounded-circle my-2">
+        <i class="fab fa-weibo label text-dark"></i>
+      </a>
+    </div>
+    <div>
+      <p class="label mb-5">随着周日晚上奥运圣火的熄灭，2020年东京奥运会正式落下帷幕。</p>
+      <p class="label mb-5">如此多的令人难以置信的勇气和技巧的例子;体育精神和情感与新的奥运座右铭相称：<strong>"更快，更高，更强 - 一起</strong> 。</p>
+      <p class="display-6 mb-5">西蒙娜·拜尔斯退出比赛，随后重返赛场赢得铜牌</p>
+      <p class="label mb-5">2020年东京奥运会体操比赛的主要"面孔"之一 - 可以说是奥运会本身 - 是 <a href="#" class="label hover-blue text-decoration-underline">西蒙娜·比尔</a> ;有史以来装饰最多的美国体操运动员。</p>
+      <p class="label mb-5">然而，这位24岁的球员在她的第一个跳马后退出了团队决赛，<a href="#" class="label hover-blue text-decoration-underline">后来解释说，她不想冒险为球队赢得奖牌</a> 美国队将继续在比赛中赢得一枚银牌）。</p>
+      <div>
+        <img class="w-100" src="https://img.olympicchannel.com/images/image/private/t_16-9_1240-700/f_auto/v1538355600/primary/qs8owpcvtaatoyb5v2cl" alt="">
+        <div class="d-flex mt-2">
+          <p class="text-normal me-auto desc">西蒙娜·拜尔斯</p>
+          <p class="text-normal ms-auto desc">圖片來源：2021 Getty Images</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+</div>
+
+
+<!-- Footer -->
+<footer class="small lighten-3 pt-4" style="background-color: black">
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+    <!-- Grid row -->
+    <div class="row">
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+        <!-- Content -->
+        <img class="mx-auto my-auto" src="../../img/light-logo.png" width="75%"/>
+
+
+      </div>
+      <!-- Grid column -->
+      <hr class="clearfix w-100 d-md-none">
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+        <!-- Links -->
+        <h5 class="fw-bold text-uppercase mb-4 text-white">关于</h5>
+        <ul class="list-unstyled">
+          <li>
+            <p>
+              <a href="#" class="text-muted">网站地图</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#" class="text-muted">入学申请</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#" class="text-muted">研究</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#" class="text-muted">赞助合作</a>
+            </p>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+        <!-- Contact details -->
+        <h5 class="fw-bold text-uppercase mb-4 text-white">联系方式</h5>
+
+        <ul class="list-unstyled">
+                        <li>
+                            <p class="text-muted">
+                                <i class="bi bi-house-fill mr-3 text-muted"></i> 广东省深圳市龙岗区五联社区将军帽路1号 </p>
+                        </li>
+                        <li>
+                            <p class="text-muted">
+                                <i class="bi bi-telephone-fill mr-3 text-muted"></i> 教务处：83706715</p>
+                        </li>
+                        <li>
+                            <p class="text-muted">
+                                <i class="bi-telephone-fill mr-3 text-muted "></i> 招生就业处：0755-83757355</p>
+                        </li>
+                        <li>
+                            <p class="text-muted">
+                                <i class="bi bi-printer-fill mr-3 text-muted"></i> 0755-83757324　</p>
+                        </li>
+                    </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+        <!-- Social buttons -->
+        <h5 class="fw-bold text-uppercase mb-4 text-white">关注我们</h5>
+
+        <!-- QQ -->
+        <a type="button" class="rounded-circle mx-2">
+          <i class="fab fa-qq fs-3 text-muted"></i>
+        </a>
+        <!-- Wechat -->
+        <a type="button" class="rounded-circle mx-2">
+          <i class="fab fa-weixin fs-3 text-muted"></i>
+        </a>
+        <!-- Weibo -->
+        <a type="button" class="rounded-circle mx-2">
+          <i class="fab fa-weibo fs-3 text-muted"></i>
+        </a>
+        <!-- Google -->
+        <a type="button" class="rounded-circle mx-2">
+          <i class="fab fa-zhihu fs-3 text-muted"></i>
+        </a>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="text-center py-3 text-white" style="background-color: black">© copyright:
+    <a href="https://mdbootstrap.com/" class="text-white">深圳技师学院</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+<script src="../../bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

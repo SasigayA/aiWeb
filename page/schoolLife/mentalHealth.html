@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>心理健康</title>
+    <!--  ali icon START-->
+    <link rel="preload" href="//at.alicdn.com/t/font_2895894_196okc21l26.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2895894_tji4s3pemxs.css">
+    <!--  ali icon END-->
+    <script src="../../js/vue@2.js"></script>
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css">
+    <link href="../../bootstrap/icons-1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../../fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <style>
+        .helpList>li>a::before{
+            content: "\2022";
+            color: black;
+            font-weight: bold;
+            display: inline-block;
+            width: 1.5rem;
+        }
+        .helpList>li{
+            text-align: left!important;
+            list-style-type: none;
+        }
+        .text-decoration-underline{
+            text-underline-offset: 0.1em!important;
+        }
+        .hover-p-black:hover{
+            color: black !important;
+        }
+        @media (min-width: 768px) {
+            .fs-6{
+                font-size: 1.8rem!important;
+            }
+            .card-title{
+                font-size: 2.5rem!important;
+            }
+        }
+        @media (min-width: 1200px) {
+            .fs-6{
+                font-size: 1rem!important;
+            }
+            .card-title{
+                font-size: calc(1.275rem + .3vw) !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<!-- 导航 + header -->
+<div id="nav" class="position-relative bg-white">
+    <!-- 副导航 开始 -->
+    <div id="SecondaryNavigation" class="bg-grey d-none d-lg-block">
+        <div class="d-flex mx-5 align-content-center">
+            <ul class="nav me-auto col-8 justify-content-start my-auto">
+                <li v-for="item in items">
+                    <a :href=item.object.link class="nav-link px-3 text-grey small hover-blue">{{item.object.name}}</a>
+                </li>
+            </ul>
+            <div class="rounded-pill bg-white py-1 px-2 align-content-between my-2">
+                    <span class="nav-item dropdown">
+                        <a class="dropdown-toggle text-grey fs-6" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Chinese</a>
+                        <div class="col-1 d-md-flex d-lg-none">
+                            <button class="navbar-toggler d-none d-md-flex d-lg-none" type="button" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Chinese</a></li>
+                        </ul>
+                    </span>
+            </div>
+        </div>
+    </div>
+    <!-- 副导航 结束 -->
+
+    <!-- 主导航 开始 -->
+    <div id="Navigation" class="navbar navbar-expand-xl py-0">
+        <div class="container-fluid px-lg-3 pe-md-0 mx-lg-5 mx-0 align-items-center d-flex py-lg-3 py-md-0">
+            <div class="col-lg-3 col-9 border-end pb-10vh-lg">
+                <a class="navbar-brand my-auto me-auto " href="../../index.html">
+                    <img src="../../img/dark-logo.svg" alt="" class="navbar-brand-item navbar-brand-img">
+                </a>
+            </div>
+            <div class="col-3 d-md-flex d-lg-none bg-blue">
+                <button class="navbar-toggler d-none d-md-flex d-lg-none w-100 h-auto" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                    <i class="bi bi-list text-white w-100 display-1 py-2" ></i>
+                </button>
+            </div>
+
+            <div class="col-lg-9 d-none d-lg-flex pb-10vh-lg">
+                <ul class="navbar-nav me-auto row gx-0 justify-content-start w-auto ">
+                    <li class="nav-item col-auto" v-for="item in items">
+
+                        <a :href=item.object.link class="nav-link- ps-3 text-dark mx-3 hover-blue">{{item.object.name}}</a>
+                    </li>
+                </ul>
+            </div>
+            <!--            移动端的菜单-->
+            <div class="offcanvas offcanvas-top navbar-toggler" tabindex="-1" id="offcanvasTop"
+                 aria-labelledby="offcanvasTopLabel" style="height: max-content">
+                <div class="offcanvas-header">
+                    <p id="offcanvasTopLabel" class="fs-1 text-center text-dark col mb-0">导航栏</p>
+                    <button type="button" class="btn-close text-reset fs-1" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body p-0">
+                    <div class="d-none d-md-flex d-lg-none row bg-white ">
+                        <div v-for="item1 in items" :class="[item1.object.index!=6 ?'col-6 border px-3 py-3':'col-12 border px-3 py-3']">
+                            <a :href="item1.object.link" class="nav-link text-dark fs-2 text-center">{{item1.object.name}}</a>
+                        </div>
+                    </div>
+                    <div id="AppSecondaryNavigation" class="col border px-3 py-3 bg-light row g-0">
+                        <span v-for="item1 in items" class="col-4">
+                            <a :href="item1.object.link" class="nav-link text-dark desc text-center ">{{item1.object.name}}</a>
+                        </span>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<!--banner-->
+
+<!--content Title-->
+<div class="py-5 container-lg px-5 px-lg-0 mx-auto mb-5 d-none d-lg-flex flex-lg-wrap">
+    <p class="display-5 fw-bold text-dark mb-5">咨询和心理服务（CAPS）</p>
+    <div class="col-lg-8 col-10 mx-auto">
+        <p class="text-start fs-4  text-dark mb-4">
+            我们知道，在斯坦福大学期间，您将遇到新的和意想不到的挑战。下面，您可以找到一份心理健康资源列表，以帮助您度过这些时期。
+        </p>
+        <hr class="col-lg-3" style="height: 0.5rem;background-image:-webkit-gradient(linear, left top, right bottom, color-stop(0.1, #de513f), color-stop(0.3, #ef6f3e), color-stop(0.5, #1c8d8b), color-stop(0.6, #1698b2), color-stop(0.8, #7f4f79));opacity: 1">
+        <p class="text-start fw-bold fs-1 text-dark mt-5">
+            记住……不正常也没关系。
+        </p>
+    </div>
+</div>
+<div class="py-1 d-flex d-lg-none">
+    <div class="col-lg-10  mt-5 mx-auto">
+        <div class="lable mb-5 mt-3 ">
+            <p class="me-auto text-dark offset-lg-2 display-2 fw-bold px-5 px-lg-0" style="width: max-content">
+                咨询和心理服务（CAPS）
+            </p>
+        </div>
+        <div class="col-lg-10 mx-auto pb-3" style="min-height: 5rem">
+            <img src="https://vaden.stanford.edu/sites/g/files/sbiybj20746/files/styles/breakpoint_2xl_1x/public/media/image/caps-2022-neighborhood-graphic-banner_0.webp?itok=3Jabwuaqhttps://vaden.stanford.edu/sites/g/files/sbiybj20746/files/styles/breakpoint_2xl_1x/public/media/image/caps-2022-neighborhood-graphic-banner_0.webp?itok=3Jabwuaq" alt="" width="100%" class="rounded-4">
+        </div>
+        <div class="col-lg-10 mx-auto mt-4 px-5 px-lg-0">
+            <p class="text-start fs-4 text-dark mb-4">
+                我们知道，在斯坦福大学期间，您将遇到新的和意想不到的挑战。下面，您可以找到一份心理健康资源列表，以帮助您度过这些时期。
+            </p>
+            <p class="text-start fw-bold display-6 text-dark mt-5 mb-5 mb-lg-0">
+                记住……不正常也没关系。
+            </p>
+        </div>
+
+    </div>
+
+</div>
+<img class="w-100 d-block d-lg-none" style="max-height: 500px" src="">
+
+<div class="container-lg px-5 px-lg-0 row mx-auto justify-content-center mb-5 justify-content-between">
+    <a href="mental/advisory.html">
+        <div class="card col-lg-5 col-10 mx-auto mx-lg-0 p-0 box-shadow ">
+            <img class="card-img-top d-none d-lg-block" src="https://vaden.stanford.edu/sites/g/files/sbiybj20746/files/styles/card_1192x596/public/media/image/female-friend-family-sitting-hold-hands-during-cheer-up-mental-depress-man-psychologist-provides-mental-aid-patient-ptsd-mental-health-concept_0.webp?h=c6980913&itok=biNELP8e">
+            <div class="card-body px-5 py-4">
+                <p class="fw-bold fs-6 mt-0 mb-1 text-dark">CAPS 为学生提供额外的治疗选择</p>
+                <p class="card-title  mb-2 label fw-bold text-dark">
+                    学生的新 WPO 治疗选择！
+                </p>
+                <p class="ad_desc card-text text-dark limit-3 my-4 mt-lg-0 mb-lg-2" style="letter-spacing: 2.1px;line-height: 1.34em">通过该计划，学生可以与治疗师一起接受最多 5 次免费的虚拟治疗课程（或如果需要和可用的面对面课程），由 CAPS 支付。WPO 临床医生还可以在您打电话时提供单次治疗。</p>
+                <a href="mental/advisory.html" class="btn btn-lg text-white bg-blue card-btn-hover hover-underline fs-6 fw-normal py-lg-2 px-4 py-4 rounded-0">了解更多</a>
+            </div>
+        </div>
+    </a>
+    <div class="col-lg-7 ps-4">
+        <hr class="col-lg-3 col-9 mt-lg-auto mb-lg-4 my-5" style="height: 0.5rem;background-image:-webkit-gradient(linear, left top, right bottom, color-stop(0.1, #de513f), color-stop(0.3, #ef6f3e), color-stop(0.5, #1c8d8b), color-stop(0.6, #1698b2), color-stop(0.8, #7f4f79));opacity: 1">
+        <p class="display-6 fw-bold text-dark mb-3">如何帮助处于困境中的学生</p>
+        <p class="text-start label  text-dark mb-4">
+            朋友、家人、教职员工可以通过多种方式帮助您可能关心的学生。以下是一些提供资源的校园网站，可以与您协商并帮助可能处于困境的学生。
+        </p>
+        <ul class="ps-2 helpList">
+            <li><a href="mental/advisory.html" class="text-decoration-underline hover-p-black text-blue fs-5 fw-bold">斯坦福大学的心理健康资源</a></li>
+        </ul>
+    </div>
+
+
+
+</div>
+<!--footer-->
+<footer class="small lighten-3 pt-4" style="background-color: black">
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+        <!-- Grid row -->
+        <div class="row">
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+                <!-- Content -->
+                <img class="mx-auto my-auto" src="../../img/light-logo.png" width="75%"/>
+
+
+            </div>
+            <!-- Grid column -->
+            <hr class="clearfix w-100 d-md-none">
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+                <!-- Links -->
+                <h5 class="fw-bold text-uppercase mb-4 text-white">关于</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <p>
+                            <a href="#" class="text-muted">网站地图</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#" class="text-muted">入学申请</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#" class="text-muted">研究</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#" class="text-muted">赞助合作</a>
+                        </p>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                <!-- Contact details -->
+                <h5 class="fw-bold text-uppercase mb-4 text-white">联系方式</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <p class="text-muted">
+                            <i class="bi bi-house-fill mr-3 text-muted"></i> 广东省深圳市龙岗区五联社区将军帽路1号 </p>
+                    </li>
+                    <li>
+                        <p class="text-muted">
+                            <i class="bi bi-telephone-fill mr-3 text-muted"></i> 教务处：83706715</p>
+                    </li>
+                    <li>
+                        <p class="text-muted">
+                            <i class="bi-telephone-fill mr-3 text-muted "></i> 招生就业处：0755-83757355</p>
+                    </li>
+                    <li>
+                        <p class="text-muted">
+                            <i class="bi bi-printer-fill mr-3 text-muted"></i> 0755-83757324　</p>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+                <!-- Social buttons -->
+                <h5 class="fw-bold text-uppercase mb-4 text-white">关注我们</h5>
+
+                <!-- QQ -->
+                <a type="button" class="rounded-circle mx-2">
+                    <i class="fab fa-qq fs-3 text-muted"></i>
+                </a>
+                <!-- Wechat -->
+                <a type="button" class="rounded-circle mx-2">
+                    <i class="fab fa-weixin fs-3 text-muted"></i>
+                </a>
+                <!-- Weibo -->
+                <a type="button" class="rounded-circle mx-2">
+                    <i class="fab fa-weibo fs-3 text-muted"></i>
+                </a>
+                <!-- Google -->
+                <a type="button" class="rounded-circle mx-2">
+                    <i class="fab fa-zhihu fs-3 text-muted"></i>
+                </a>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="text-center py-3 text-white" style="background-color: black">© copyright:
+        <a href="https://mdbootstrap.com/" class="text-white">深圳技师学院</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+<script src="../../js/thirNavbar.js"></script>
+<script src="../../bootstrap/bootstrap@5.0.2.js" crossorigin="anonymous"></script>
+
+<script src="../../js/main.js"></script>
+</body>
+</html>
